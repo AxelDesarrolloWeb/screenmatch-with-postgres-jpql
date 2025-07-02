@@ -168,3 +168,171 @@ graph TD
     P --> Q[Obtener episodios]
     Q --> R[Persistir episodios]
 ```
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+# ScreenMatch Frontend Application
+
+![ScreenMatch Logo](img/logo.png)
+
+## Descripción
+
+ScreenMatch es una aplicación web para explorar y descubrir series de televisión y películas. Proporciona información detallada sobre títulos populares, lanzamientos recientes, y permite explorar episodios por temporada. La aplicación consume una API RESTful para obtener datos de series y presenta una interfaz de usuario atractiva y fácil de usar.
+
+## Características Principales
+
+- 🎬 Exploración de series populares y lanzamientos recientes
+- 🔍 Búsqueda por categorías (Comedia, Acción, Crimen, Drama, Aventura)
+- 📺 Vista detallada de series con información completa
+- 📊 Listado de episodios por temporada
+- ⭐ Top 5 de los mejores episodios por serie
+- 💻 Diseño responsivo para diferentes dispositivos
+
+## Tecnologías Utilizadas
+
+- **Frontend**:
+  - HTML5
+  - CSS3 (con Flexbox y Grid)
+  - JavaScript (ES6)
+  - Módulos JavaScript
+
+- **Estilos**:
+  - Google Fonts (Inter)
+  - Google Material Icons
+
+- **Comunicación**:
+  - Fetch API para consumo de servicios REST
+
+## Estructura del Proyecto
+
+```
+screenmatch-frontend/
+├── css/
+│   ├── detalhes.css         // Estilos para la página de detalles
+│   ├── home.css             // Estilos para la página principal
+│   └── styles.css           // Estilos globales
+├── img/
+│   └── logo.png             // Logo de la aplicación
+├── scripts/
+│   ├── getDatos.js          // Módulo para obtener datos de la API
+│   ├── index.js             // Lógica para la página principal
+│   └── series.js            // Lógica para la página de detalles
+├── index.html               // Página principal
+└── detalles.html            // Página de detalles de serie
+```
+
+## Configuración y Uso
+
+### Requisitos Previos
+- Servidor API funcionando en `http://localhost:8081`
+
+### Instalación
+1. Clona el repositorio:
+```bash
+git clone https://github.com/tu-usuario/screenmatch-frontend.git
+cd screenmatch-frontend
+```
+
+2. Abre el archivo `index.html` en tu navegador
+
+### Personalización
+- Para cambiar la URL de la API, modifica `baseURL` en `scripts/getDatos.js`:
+```javascript
+const baseURL = 'http://tu-servidor-api:puerto';
+```
+
+## Páginas y Funcionalidades
+
+### 1. Página Principal (`index.html`)
+![FireShot Capture 001 - Screenmatch -  127 0 0 1](https://github.com/user-attachments/assets/4a629fed-fab5-4bdc-a656-ce4b8014a2f4)
+
+
+- **Secciones**:
+  - Lanzamientos en ScreenMatch
+  - Títulos populares
+  - Todos los títulos disponibles
+
+- **Filtros**:
+  - Selección por categoría (Comedia, Acción, Crimen, Drama, Aventura)
+
+### 2. Página de Detalles (`detalles.html`)
+![FireShot Capture 002 - Screenmatch -  127 0 0 1](https://github.com/user-attachments/assets/ce904b18-7bec-43a2-900a-93df7cbd4fee)
+
+
+- **Información de la Serie**:
+  - Poster
+  - Título
+  - Evaluación promedio
+  - Sinopsis
+  - Actores
+
+- **Selección de Temporadas**:
+  - Listado de todas las temporadas disponibles
+  - Opción para ver todos los episodios
+  - Top 5 de los mejores episodios
+
+- **Listado de Episodios**:
+  - Número de episodio
+  - Título del episodio
+  - Evaluación
+
+## Estilos y Diseño
+
+### Características de Diseño
+- **Tema Oscuro** con gradientes azules
+- **Diseño Responsive** que se adapta a diferentes tamaños de pantalla
+- **Grid Layout** para la presentación de series
+- **Flexbox** para organizar elementos
+
+### Archivos CSS Principales
+1. **home.css**: Estilos específicos para la página principal
+2. **detalhes.css**: Estilos para la página de detalles
+3. **styles.css**: Estilos globales compartidos
+
+## JavaScript
+
+### Módulos Principales
+1. **getDatos.js**: 
+```javascript
+const baseURL = 'http://localhost:8081';
+
+export default function getDatos(endpoint) {
+    return fetch(`${baseURL}${endpoint}`)
+        .then(response => response.json())
+        .catch(error => {
+            console.error('Error al ingresar al endpoint:', error);
+        });
+}
+```
+
+2. **index.js**: 
+   - Carga las series populares, lanzamientos y todas las series
+   - Maneja el filtrado por categorías
+
+3. **series.js**: 
+   - Carga la información detallada de una serie
+   - Maneja la selección de temporadas y episodios
+   - Muestra el top 5 de episodios
+
+
+## Contribución
+
+Las contribuciones son bienvenidas. Sigue estos pasos:
+
+1. Haz un fork del proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/nueva-feature`)
+3. Haz commit de tus cambios (`git commit -m 'Agrega nueva feature'`)
+4. Haz push a la rama (`git push origin feature/nueva-feature`)
+5. Abre un Pull Request
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## Contacto
+
+Para preguntas o soporte, contacta a [alvax019@gmail.com](mailto:alvax019@gmail.com)
